@@ -1,0 +1,9 @@
+
+Intalar o pacote:
+$npm install @grpc/proto-loader @grpc/grpc-js
+
+Instalar a Extensão :
+ID zxh404.vscode-proto3
+
+Gerando grpc types:
+$ npm run grpc-types

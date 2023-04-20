@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package chat_package;
+
+service ChatService {
+    //rpc SendMessage(Message) returns (Message) {}
+    //rpc ReceiveMessage(Message) returns (stream Message) {}
+    rpc Chat(ChatRequest) returns (ChatResponse) {}
+}
+
+message ChatRequest {
+    int32 chat_id = 1;
+    string message = 2;
+}
+
+message ChatResponse {
+
+    message Message {
+        int32 id = 1;
+        string message = 2;
+        string created_at = 3;
+    }
+
+    int32 id = 1;
+    Message answer = 2;
+    string created_at = 3;
+}
+
+
