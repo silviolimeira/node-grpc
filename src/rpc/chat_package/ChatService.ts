@@ -15,13 +15,21 @@ export interface ChatServiceClient extends grpc.Client {
   chat(argument: _chat_package_ChatRequest, options: grpc.CallOptions, callback: grpc.requestCallback<_chat_package_ChatResponse__Output>): grpc.ClientUnaryCall;
   chat(argument: _chat_package_ChatRequest, callback: grpc.requestCallback<_chat_package_ChatResponse__Output>): grpc.ClientUnaryCall;
   
+  ChatStream(argument: _chat_package_ChatRequest, metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientReadableStream<_chat_package_ChatResponse__Output>;
+  ChatStream(argument: _chat_package_ChatRequest, options?: grpc.CallOptions): grpc.ClientReadableStream<_chat_package_ChatResponse__Output>;
+  chatStream(argument: _chat_package_ChatRequest, metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientReadableStream<_chat_package_ChatResponse__Output>;
+  chatStream(argument: _chat_package_ChatRequest, options?: grpc.CallOptions): grpc.ClientReadableStream<_chat_package_ChatResponse__Output>;
+  
 }
 
 export interface ChatServiceHandlers extends grpc.UntypedServiceImplementation {
   Chat: grpc.handleUnaryCall<_chat_package_ChatRequest__Output, _chat_package_ChatResponse>;
   
+  ChatStream: grpc.handleServerStreamingCall<_chat_package_ChatRequest__Output, _chat_package_ChatResponse>;
+  
 }
 
 export interface ChatServiceDefinition extends grpc.ServiceDefinition {
   Chat: MethodDefinition<_chat_package_ChatRequest, _chat_package_ChatResponse, _chat_package_ChatRequest__Output, _chat_package_ChatResponse__Output>
+  ChatStream: MethodDefinition<_chat_package_ChatRequest, _chat_package_ChatResponse, _chat_package_ChatRequest__Output, _chat_package_ChatResponse__Output>
 }

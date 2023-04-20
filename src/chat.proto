@@ -6,6 +6,7 @@ service ChatService {
     //rpc SendMessage(Message) returns (Message) {}
     //rpc ReceiveMessage(Message) returns (stream Message) {}
     rpc Chat(ChatRequest) returns (ChatResponse) {}
+    rpc ChatStream(ChatRequest) returns (stream ChatResponse) {}
 }
 
 message ChatRequest {
